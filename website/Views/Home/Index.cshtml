@@ -1,0 +1,38 @@
+﻿@model WebSiteServices.ViewModels.BirthdayViewModel
+
+@{
+    ViewBag.Title = "CCCCAAAAAKKKEEEEE";
+}
+
+<div class="jumbotron">
+    <h1>WHERE'S MY CAKE</h1>
+    <p class="lead">Lets face it, P3 has a sugar addiction, this advanced work of art is intended to let you know when you can expect your next sugar rush.</p>
+</div>
+<li class="dropdown" ng-controller="DropdownCtrl">
+    <a class="dropdown-toggle">
+        Click me for a dropdown, yo!
+    </a>
+    <ul class="dropdown-menu">
+        <li ng-repeat="choice in items">
+            <a>{{choice}}</a>
+        </li>
+    </ul>
+</li>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Next Birthday</h2>
+        <p>Name: @Model.NextBirthday.Name Date: @Model.NextBirthday.Date.ToShortDateString()</p>
+        <p>Days until the big day: @Model.DaysToGo<p>
+        <p>Closest Thursday: @Model.ClosestThursday.ToShortDateString()</p>
+    </div>
+    @*should probably do a partial view or somesuch*@
+    <div class="col-md-4">
+        <h2>Birthday List</h2>
+        @foreach (var birthday in Model.Birthdays)
+        {
+            <p>
+            @birthday.Name : @birthday.Date.ToShortDateString()
+            </p>
+        }
+    </div>
+</div>
